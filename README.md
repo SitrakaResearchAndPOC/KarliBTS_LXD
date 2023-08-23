@@ -152,7 +152,7 @@ cd src
 ```
 nano target/firmware/Makefile
 ```
-"#uncomment CFLAGS += -DCONFIG_TX_ENABLE in the file target/firmware/Makefile"
+"#uncomment CFLAGS += -DCONFIG_TX_ENABLE in the file target/firmware/Makefile"  
 #ctrl+o return ctrl+x  
 ```
 tail -f target/firmware/Makefile
@@ -178,6 +178,7 @@ git checkout 551b9752bcd5d3d21bb2df0736b1801bda3d0d10
 ```
 autoreconf -i
 ```
+```
 ./configure
 ```
 ```
@@ -191,7 +192,6 @@ ldconfig -i
 ```
 ```
 cd ..
-```
 ```
 
 installing trx
