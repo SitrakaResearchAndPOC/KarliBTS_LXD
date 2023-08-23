@@ -357,17 +357,23 @@ cp osmocom/trx/src/host/osmocon/osmocon ../root/
 ```
 chmod +x osmocon
 ```
-Adding devices by dmesg | grep ttyUSB*
+Copying trx
+```
+cp osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin ../root/
+```
+# ADDING DEVICES ON LXC
+## Finding all devices
+```
+dmesg | grep ttyUSB*
+```
+## Adding devices on LXC
 ```
 lxc config device add KarliBTSLXD ttyUSB0 unix-char path=/dev/ttyUSB0
 ```
 ```
 lxc config device add KarliBTSLXD ttyUSB1 unix-char path=/dev/ttyUSB1
 ```
-Copying trx
-```
-cp osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin ../root/
-```
+
 # LAUNCHING OSMOCOM TEST
 ## Terminal 1 
 ```
@@ -410,6 +416,3 @@ Can't run prio on lxc : Error setting SCHED_RR with prio 99
 # Documentations  
 * https://www.cyberciti.biz/faq/how-to-install-lxd-on-debian-11-linux/
 * https://discuss.linuxcontainers.org/t/tty-device-passthrough/6108
-
-
-
