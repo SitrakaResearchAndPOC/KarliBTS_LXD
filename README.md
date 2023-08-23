@@ -153,7 +153,7 @@ cd src
 nano target/firmware/Makefile
 ```
 "#uncomment CFLAGS += -DCONFIG_TX_ENABLE in the file target/firmware/Makefile"
-#ctrl+o return ctrl+x
+#ctrl+o return ctrl+x  
 ```
 tail -f target/firmware/Makefile
 ```
@@ -169,6 +169,39 @@ installing libosmo-dsp
 ```
 git clone git://git.osmocom.org/libosmo-dsp.git
 ```
+```
+cd libosmo-dsp/
+```
+```
+git checkout 551b9752bcd5d3d21bb2df0736b1801bda3d0d10
+```
+```
+autoreconf -i
+```
+./configure
+```
+```
+make -j4
+```
+```
+make install
+```
+```
+ldconfig -i
+```
+```
+cd ..
+```
+```
+
+installing trx
+```
+git clone git://git.osmocom.org/osmocom-bb.git -b fixeria/trx trx
+```
+
+
+
+
 
 
 
