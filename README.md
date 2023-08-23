@@ -218,7 +218,6 @@ make -j4 HOST_layer23_CONFARGS=--enable-transceiver -e CROSS_TOOL_PREFIX=arm-non
 ```
 cd ../..
 ```
-```
 installing dependencies before libosmo-abis
 ```
 apt-get install libortp-dev
