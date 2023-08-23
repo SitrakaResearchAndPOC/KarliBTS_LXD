@@ -440,3 +440,4 @@ Can't run prio on lxc : Error setting SCHED_RR with prio 99
 # Documentations  
 * https://www.cyberciti.biz/faq/how-to-install-lxd-on-debian-11-linux/
 * https://discuss.linuxcontainers.org/t/tty-device-passthrough/6108
+* https://github.com/SitrakaResearchAndPOC/KarliBTS_Debian
