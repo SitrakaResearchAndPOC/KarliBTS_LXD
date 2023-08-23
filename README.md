@@ -198,6 +198,39 @@ installing trx
 ```
 git clone git://git.osmocom.org/osmocom-bb.git -b fixeria/trx trx
 ```
+```
+cd trx/src/
+```
+```
+git checkout 620fe497efa492feff4550e336cc3f8167715936
+```
+"#uncomment CFLAGS += -DCONFIG_TX_ENABLE in the file target/firmware/Makefile"  
+#ctrl+o return ctrl+x  
+```
+nano target/firmware/Makefile
+```
+```
+tail -f target/firmware/Makefile
+```
+```
+make -j4 HOST_layer23_CONFARGS=--enable-transceiver -e CROSS_TOOL_PREFIX=arm-none-eabi-
+```
+```
+cd ../..
+```
+```
+installing dependencies before libosmo-abis
+```
+apt-get install libortp-dev
+```
+```
+apt-get install libtool shtool automake dahdi-source libssl-dev sqlite3 libsqlite3-dev libsctp-dev libfftw3-dev libfftw3-3 autoconf libsctp-dev libgnutls28-dev libcurl4-gnutls-dev git-core pkg-config make doxygen libtalloc-dev libpcsclite-dev libusb-1.0-0-dev
+```
+installing libosmo-abis
+```
+git clone git://git.osmocom.org/libosmo-abis.git
+```
+
 
 
 
