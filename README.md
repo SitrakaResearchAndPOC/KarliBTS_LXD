@@ -507,6 +507,107 @@ lxd-image import KarliBTS a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5f
 ```
 
 
+# RUNNING SPOOFING EXTENSION WITH SCRIPT1
+```
+lxc exec KarliBTS -- sh
+```
+```
+wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/nitb-script-all/main/osmo-nitb-scripts.zip
+```
+```
+apt-get install zip
+```
+```
+unzip osmo-nitb-scripts.zip
+```
+```
+rm -rf osmo-nitb-scripts.zip
+```
+```
+mv osmo-nitb-scripts/scripts_spoof1 ../root
+```
+```
+mv osmo-nitb-scripts/scripts_spoof2 ../root
+```
+```
+cd  scripts_spoof1
+```
+```
+nano finding_imsi_extenstion.sh
+```
+Change sqlite file as following /root/hlr.sqlite3
+```
+bash finding_imsi_extenstion.sh
+```
+```
+nano delete_all.sh
+```
+Change sqlite file as following /root/hlr.sqlite3
+```
+nano set_imsi_extension.sh
+```
+Change sqlite file as following /root/hlr.sqlite3
+```
+nano sending_sms_broadcast.py
+```
+Change sqlite file as following /root/hlr.sqlite3
+
+
+
+# REMAKE AS SPOOF2
+```
+cd  scripts_spoof2
+```
+```
+nano show_subscribers.py
+```
+Change sqlite file as following /root/hlr.sqlite3
+```
+```
+nano sms_broadcast.py
+```
+Change sqlite file as following /root/hlr.sqlite3
+```
+nano sms_send_source_dest_msg.py
+```
+Change sqlite file as following /root/hlr.sqlite3
+
+
+# TESTING SPOOFING1
+```
+lxc exec KarliBTS -- scripts_spoof1/finding_imsi_extenstion.sh
+```
+```
+lxc exec KarliBTS -- scripts_spoof1/delete_all.sh
+```
+Change with the following imsi 
+```
+lxc exec KarliBTS -- scripts_spoof1/set_imsi_extension.sh 646040227957426 0341220590
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_spoof_byextension.py  
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_broadcast.py 
+```
+
+# TESTING SPOOFING2
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/show_subscribers.py
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_broadcast.py 0341220590 'alert corona'
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_send_source_dest_msg.py 0341220590 0341220590 "alert corona v2"
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_spam.py 0341220590 3 "alert corona 3"
+```
+
+
+
+
 # Remark : 
 Can't run prio on lxc : Error setting SCHED_RR with prio 99
 
