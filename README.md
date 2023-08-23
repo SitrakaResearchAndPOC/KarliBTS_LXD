@@ -361,6 +361,21 @@ Copying trx
 ```
 cp osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin ../root/
 ```
+
+## BEFORE LAUNCHING BTS, PREPARING ALL CONFIGS
+* config file of osmo-bts
+```
+wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/CalypsoBTS_Debian/main/osmo-bts.cfg
+``` 
+* config file of open-bsc
+``` 
+wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/CalypsoBTS_Debian/main/open-bsc.cfg
+``` 
+* config  hlr.sqlite3
+```
+touch hlr.sqlite3
+```
+
 # ADDING DEVICES ON LXC
 ## Finding all devices
 ```
@@ -408,6 +423,15 @@ Tape ctrl+shift+T
 lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
 ```
 Tape ctrl+shift+T
+
+
+## DELETING DEIVCES AT LXC
+```
+lxc config device remove KarliBTS ttyUSB0
+```
+```
+lxc config device remove KarliBTS ttyUSB1 
+```
 
 
 # Remark : 
