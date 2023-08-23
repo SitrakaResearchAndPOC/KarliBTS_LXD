@@ -231,6 +231,34 @@ installing libosmo-abis
 ```
 git clone git://git.osmocom.org/libosmo-abis.git
 ```
+```
+cd libosmo-abis/
+```
+```
+git checkout 39dffb6c29a8d78ba8527aa4ccc13f34d1c3b319
+```
+```
+autoreconf -i
+```
+```
+./configure
+```
+```
+make -j4
+```
+```
+make install
+```
+```
+ldconfig
+```
+```
+cd ..
+```
+installing libosmo-netif
+```
+git clone git://git.osmocom.org/libosmo-netif.git
+```
 
 
 
