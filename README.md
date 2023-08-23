@@ -564,7 +564,6 @@ nano show_subscribers.py
 
 Change sqlite file as following /root/hlr.sqlite3
 ```
-```
 nano sms_broadcast.py
 ```
 Change sqlite file as following /root/hlr.sqlite3
