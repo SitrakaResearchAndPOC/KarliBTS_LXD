@@ -53,10 +53,10 @@ export PATH=$PATH:/usr/local/bin
 
 ## creating debian on lxc
 ```
-lxc launch images:debian/10 KarliBTSLXD
+lxc launch images:debian/10 KarliBTS
 ```
 ```
-lxc exec KarliBTSLXD -- sh
+lxc exec KarliBTS -- sh
 ```
 ## editing source.list
 ```
@@ -368,44 +368,44 @@ dmesg | grep ttyUSB*
 ```
 ## Adding devices on LXC
 ```
-lxc config device add KarliBTSLXD ttyUSB0 unix-char path=/dev/ttyUSB0
+lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
 ```
 ```
-lxc config device add KarliBTSLXD ttyUSB1 unix-char path=/dev/ttyUSB1
+lxc config device add KarliBTS ttyUSB1 unix-char path=/dev/ttyUSB1
 ```
 
 # LAUNCHING OSMOCOM TEST
 ## Terminal 1 
 ```
-lxc exec KarliBTSLXD -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
 ```
 ## or Terminal 1
 ```
-lxc exec KarliBTSLXD -- osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
 ```
 Tape ctrl+shift+T
 ## Terminal 2
 ```
-lxc exec KarliBTSLXD -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin 
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin 
 ```
 ## or Terminal 2
 ```
-lxc exec KarliBTSLXD -- osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
+lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
 ```
 Tape ctrl+shift+T
 ## Terminal 3
 ```
-lxc exec KarliBTSLXD -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN -2
+lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN -2
 ```
 Tape ctrl+shift+T
 ## Terminal 4
 ```
-lxc exec KarliBTSLXD -- osmo-nitb -c open-bsc.cfg -l hlr.sqlite3 -P -C --debug=DRLL:DCC:DMM:DRR:DRSL:DNM
+lxc exec KarliBTS -- osmo-nitb -c open-bsc.cfg -l hlr.sqlite3 -P -C --debug=DRLL:DCC:DMM:DRR:DRSL:DNM
 ```
 Tape ctrl+shift+T
 ## Terminal 5
 ```
-lxc exec KarliBTSLXD -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
+lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
 ```
 Tape ctrl+shift+T
 
