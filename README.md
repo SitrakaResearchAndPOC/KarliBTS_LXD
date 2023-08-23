@@ -382,6 +382,11 @@ touch hlr.sqlite3
 dmesg | grep ttyUSB*
 ```
 ## Adding devices on LXC
+* For on Phone (SMS only)
+```
+lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
+```  
+* For two Phones (SMS and Call)
 ```
 lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
 ```
@@ -389,7 +394,34 @@ lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
 lxc config device add KarliBTS ttyUSB1 unix-char path=/dev/ttyUSB1
 ```
 
-# LAUNCHING OSMOCOM TEST
+
+# LAUNCHING OSMOCOM ONE PHONE (SMS ONLY)
+## Terminal 1 
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
+```
+## or Terminal 1
+```
+lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+```
+Tape ctrl+shift+T
+## Terminal 2
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN 
+```
+Tape ctrl+shift+T
+## Terminal 3
+```
+lxc exec KarliBTS -- osmo-nitb -c open-bsc.cfg -l hlr.sqlite3 -P -C --debug=DRLL:DCC:DMM:DRR:DRSL:DNM
+```
+Tape ctrl+shift+T
+## Terminal 4
+```
+lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
+```
+
+
+# LAUNCHING OSMOCOM TWO PHONES (SMS AND CALL)
 ## Terminal 1 
 ```
 lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
@@ -422,7 +454,6 @@ Tape ctrl+shift+T
 ```
 lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
 ```
-Tape ctrl+shift+T
 
 
 ## DELETING DEIVCES AT LXC
