@@ -459,7 +459,7 @@ lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM
 ```
 
 
-## DELETING DEIVCES AT LXC
+# DELETING DEVICES AT LXC
 ```
 lxc config device remove KarliBTS ttyUSB0
 ```
@@ -493,14 +493,17 @@ md5sum  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
 ```
 7a6f181cbde8701956e9d6a699c8b3c0
 ```
-
-
 * without /var/cache/apt/archives : a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 ```
 md5sum a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 ```
 ```
 aab88e06b2113ec99e1a04231a5b9f37 
+```
+
+# IMPORTING IMAGE
+```
+lxd-image import KarliBTS a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 ```
 
 
