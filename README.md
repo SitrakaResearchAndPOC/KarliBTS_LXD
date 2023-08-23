@@ -393,7 +393,10 @@ lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
 ```
 lxc config device add KarliBTS ttyUSB1 unix-char path=/dev/ttyUSB1
 ```
-
+## Setting privileges
+```
+lxc config set CONTAINER security.privileged=true
+```
 
 # LAUNCHING OSMOCOM ONE PHONE (SMS ONLY)
 ## Terminal 1 
