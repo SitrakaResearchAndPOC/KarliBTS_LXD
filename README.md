@@ -301,6 +301,55 @@ git clone git://git.osmocom.org/openbsc.git
 ```
 cd openbsc/openbsc/
 ```
+```
+git checkout d2550da76f9974bb1957f74c5d3eb75fdae923d9
+```
+```
+autoreconf -i
+```
+```
+./configure
+```
+```
+make -j4
+```
+```
+make install
+```
+```
+ldconfig
+```
+```
+cd ../..
+```
+installing osmo-bts
+```
+git clone git://git.osmocom.org/osmo-bts.git
+```
+```
+cd osmo-bts/
+```
+```
+git checkout 59e7773055335a12d749faf84d88a8ed9fa0f201
+```
+```
+autoreconf -i
+```
+```
+./configure --enable-trx
+```
+```
+make -j4
+```
+```
+make install
+```
+```
+ldconfig
+```
+```
+cd ..
+```
 
 
 
