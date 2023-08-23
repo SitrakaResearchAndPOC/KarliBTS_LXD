@@ -561,6 +561,7 @@ cd  scripts_spoof2
 ```
 nano show_subscribers.py
 ```
+
 Change sqlite file as following /root/hlr.sqlite3
 ```
 ```
