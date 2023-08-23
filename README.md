@@ -434,6 +434,21 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 
+## CODE MANAGING BTS
+```
+telnet localhost 4242
+```
+```
+telnet localhost 4241
+```
+##
+## CODE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
+```
+*#100#
+```
+
+
+
 # Remark : 
 Can't run prio on lxc : Error setting SCHED_RR with prio 99
 
