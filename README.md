@@ -174,8 +174,8 @@ cd libosmo-dsp/
 ```
 ```
 git checkout 551b9752bcd5d3d21bb2df0736b1801bda3d0d10
-```
-```
+```  
+```  
 autoreconf -i
 ```
 ```
