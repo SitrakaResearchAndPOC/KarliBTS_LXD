@@ -468,19 +468,40 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 
-## CODE MANAGING BTS
+# CODE MANAGING BTS
 ```
 telnet localhost 4242
 ```
 ```
 telnet localhost 4241
 ```
-##
-## CODE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
+# CODE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
 ```
 *#100#
 ```
 
+
+# EXPORTING IMAGE CONTAINER
+```
+lxd-image export KarliBTS
+```
+There a two images exported (for mine)
+* with /var/cache/apt/archives :  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
+```
+md5sum  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
+```
+```
+7a6f181cbde8701956e9d6a699c8b3c0
+```
+
+
+* without /var/cache/apt/archives : a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+```
+md5sum a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+```
+```
+aab88e06b2113ec99e1a04231a5b9f37 
+```
 
 
 # Remark : 
