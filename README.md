@@ -470,10 +470,10 @@ lxc config device remove KarliBTS ttyUSB1
 
 # CODE MANAGING BTS
 ```
-telnet localhost 4242
+lxc exec KarliBTS -- telnet localhost 4242
 ```
 ```
-telnet localhost 4241
+lxc exec KarliBTS -- telnet localhost 4241
 ```
 # CODE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
 ```
