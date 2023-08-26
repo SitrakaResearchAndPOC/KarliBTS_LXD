@@ -483,7 +483,7 @@ lxc exec KarliBTS -- telnet localhost 4241
 
 # EXPORTING IMAGE CONTAINER
 ```
-lxd-image export KarliBTS
+lxc export KarliBTS
 ```
 There a two images exported (for mine)
 * with /var/cache/apt/archives :  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
@@ -503,7 +503,10 @@ aab88e06b2113ec99e1a04231a5b9f37
 
 # IMPORTING IMAGE
 ```
-lxd-image import KarliBTS a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+```
+```
+lxc launch a89e0a08c6f7 KarliBTS
 ```
 
 
@@ -554,7 +557,7 @@ Change sqlite file as following /root/hlr.sqlite3
 
 
 
-# REMAKE AS SPOOF2
+# REMARK AS SPOOF2
 ```
 cd  scripts_spoof2
 ```
