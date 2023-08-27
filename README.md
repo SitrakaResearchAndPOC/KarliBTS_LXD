@@ -594,6 +594,23 @@ lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_spoof_byextension.py
 lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_broadcast.py 
 ```
 
+
+Before launching please corret the help
+```
+
+```
+
+change : 
+---
+usage: ./sms_broadcast.py extension message
+This script sends a message from the specified extension (number) to all devices connected to this base station
+---
+to
+---
+usage: ./sending_source_dest.py extension_source extension_destination  message
+This script sends a message from the specified extension source (number) to extension destination connected to this base station
+---
+
 # TESTING SPOOFING2
 ```
 lxc exec KarliBTS -- python2 scripts_spoof2/show_subscribers.py
