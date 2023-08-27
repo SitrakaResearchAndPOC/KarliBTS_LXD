@@ -595,8 +595,11 @@ lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_broadcast.py
 ```
 
 # Spoof script2 modification
- 
-Before launching please corret the help, change : 
+```
+lxc exec KarliBTS -- nano scripts_spoof2/sending_source_dest.py  
+```
+
+Before launching sending_source_dest.py, please corret the help, change : 
 ```
 usage: ./sms_broadcast.py extension message
 This script sends a message from the specified extension (number) to all devices connected to this base station
