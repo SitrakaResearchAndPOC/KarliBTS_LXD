@@ -56,7 +56,7 @@ export PATH=$PATH:/usr/local/bin
 lxc launch images:debian/10 KarliBTS
 ```
 ```
-lxc exec KarliBTS -- sh
+lxc exec KarliBTS -- bash
 ```
 ## editing source.list
 ```
@@ -405,7 +405,7 @@ lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/tty
 ```
 ## or Terminal 1
 ```
-lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
 ```
 Tape ctrl+shift+T
 ## Terminal 2
@@ -431,7 +431,7 @@ lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/tty
 ```
 ## or Terminal 1
 ```
-lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
 ```
 Tape ctrl+shift+T
 ## Terminal 2
@@ -440,7 +440,7 @@ lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/tty
 ```
 ## or Terminal 2
 ```
-lxc exec KarliBTS -- osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
 ```
 Tape ctrl+shift+T
 ## Terminal 3
@@ -483,7 +483,10 @@ lxc exec KarliBTS -- telnet localhost 4241
 
 # EXPORTING IMAGE CONTAINER
 ```
-lxc export KarliBTS
+lxc publish KarliBTS --alias KarliBTS -f
+```
+```
+lxc image export KarliBTS .
 ```
 There a two images exported (for mine)
 * with /var/cache/apt/archives :  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
@@ -503,10 +506,10 @@ aab88e06b2113ec99e1a04231a5b9f37
 
 # IMPORTING IMAGE
 ```
-lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
 ```
 ```
-lxc launch a89e0a08c6f7 KarliBTS
+lxc launch KarliBTSimage KarliBTS
 ```
 
 
