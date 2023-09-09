@@ -375,6 +375,7 @@ wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/CalypsoBTS_Debian/m
 ```
 touch hlr.sqlite3
 ```
+```
 exit
 ```
 
@@ -587,6 +588,25 @@ nano sms_send_source_dest_msg.py
 Change sqlite file as following /root/hlr.sqlite3
 
 
+Spoof script2 modification
+```
+lxc exec KarliBTS -- nano scripts_spoof2/sms_send_source_dest_msg.py 
+```
+
+Before launching sms_send_source_dest_msg.py , please corret the help, change : 
+```
+usage: ./sms_broadcast.py extension message
+This script sends a message from the specified extension (number) to all devices connected to this base station
+```
+to
+```
+usage: ./sms_send_source_dest_msg.py  extension_source extension_destination  message
+This script sends a message from the specified extension source (number) to extension destination connected to this base station
+```
+```
+exit
+```
+
 # TESTING SPOOFING1
 ```
 lxc exec KarliBTS -- scripts_spoof1/finding_imsi_extenstion.sh
@@ -603,22 +623,6 @@ lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_spoof_byextension.py
 ```
 ```
 lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_broadcast.py 
-```
-
-# Spoof script2 modification
-```
-lxc exec KarliBTS -- nano scripts_spoof2/sms_send_source_dest_msg.py 
-```
-
-Before launching sms_send_source_dest_msg.py , please corret the help, change : 
-```
-usage: ./sms_broadcast.py extension message
-This script sends a message from the specified extension (number) to all devices connected to this base station
-```
-to
-```
-usage: ./sms_send_source_dest_msg.py  extension_source extension_destination  message
-This script sends a message from the specified extension source (number) to extension destination connected to this base station
 ```
 
 # TESTING SPOOFING2
