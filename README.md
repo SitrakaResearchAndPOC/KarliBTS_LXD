@@ -408,6 +408,13 @@ lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/tty
 lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
 ```
 Tape ctrl+shift+T
+
+## Find ARFCN
+Tape `*#*#4636#*#*` and choose GSM only on your Android phone  
+Installing network signal guru on your android phone  
+And finding the arfcn that this one is connect  
+Let's name this arfcn as ARFCN  
+
 ## Terminal 2
 ```
 lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN 
@@ -443,6 +450,13 @@ lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/tty
 lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
 ```
 Tape ctrl+shift+T
+
+## Find ARFCN
+Tape `*#*#4636#*#*` and choose GSM only on your Android phone  
+Installing network signal guru on your android phone  
+And finding the arfcn that this one is connect  
+Let's name this arfcn as ARFCN  
+
 ## Terminal 3
 ```
 lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN -2
