@@ -348,7 +348,7 @@ make install
 ldconfig
 ```
 ```
-cd ..
+cd ../..
 ```
 Copying osmocon
 ```
@@ -375,8 +375,11 @@ wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/CalypsoBTS_Debian/m
 ```
 touch hlr.sqlite3
 ```
+exit
+```
 
 # ADDING DEVICES ON LXC
+Plug usb ttl for motorola phone
 ## Finding all devices
 ```
 dmesg | grep ttyUSB*
@@ -473,14 +476,6 @@ lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM
 ```
 
 
-# DELETING DEVICES AT LXC
-```
-lxc config device remove KarliBTS ttyUSB0
-```
-```
-lxc config device remove KarliBTS ttyUSB1 
-```
-
 
 # CODE MANAGING BTS
 ```
@@ -489,11 +484,10 @@ lxc exec KarliBTS -- telnet localhost 4242
 ```
 lxc exec KarliBTS -- telnet localhost 4241
 ```
-# CODE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
+# CODE USSD PHONE GETTING NUMBER MSISDN OR EXTENSION ON THE NETWORK
 ```
 *#100#
 ```
-
 
 # EXPORTING IMAGE CONTAINER
 ```
@@ -518,16 +512,10 @@ md5sum a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 aab88e06b2113ec99e1a04231a5b9f37 
 ```
 
-# IMPORTING IMAGE
-```
-lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
-```
-```
-lxc launch KarliBTSimage KarliBTS
-```
 
 
 # RUNNING SPOOFING EXTENSION WITH SCRIPT1
+Tape ctrl+shit+T
 ```
 lxc exec KarliBTS -- bash
 ```
@@ -647,6 +635,21 @@ lxc exec KarliBTS -- python2 scripts_spoof2/sms_send_source_dest_msg.py 03412205
 lxc exec KarliBTS -- python2 scripts_spoof2/sms_spam.py 0341220590 3 "alert corona 3"
 ```
 
+# DELETING DEVICES AT LXC
+```
+lxc config device remove KarliBTS ttyUSB0
+```
+```
+lxc config device remove KarliBTS ttyUSB1 
+```
+
+# IMPORTING IMAGE
+```
+lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
+```
+```
+lxc launch KarliBTSimage KarliBTS
+```
 
 
 
