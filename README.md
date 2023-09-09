@@ -515,7 +515,7 @@ lxc launch KarliBTSimage KarliBTS
 
 # RUNNING SPOOFING EXTENSION WITH SCRIPT1
 ```
-lxc exec KarliBTS -- sh
+lxc exec KarliBTS -- bash
 ```
 ```
 wget https://raw.githubusercontent.com/SitrakaResearchAndPOC/nitb-script-all/main/osmo-nitb-scripts.zip
@@ -557,10 +557,16 @@ Change sqlite file as following /root/hlr.sqlite3
 nano sending_sms_broadcast.py
 ```
 Change sqlite file as following /root/hlr.sqlite3
+```
+exit
+```
 
 
 
 # REMARK AS SPOOF2
+```
+lxc exec KarliBTS -- bash
+```
 ```
 cd  scripts_spoof2
 ```
