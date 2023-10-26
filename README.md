@@ -652,7 +652,8 @@ lxc config device remove KarliBTS ttyUSB0
 ```
 lxc config device remove KarliBTS ttyUSB1 
 ```
-# THE TWO FINAL IMAGES
+
+# QUICK INSTALL FOR KarliBTS_LXD
 
 
 # Remark : 
