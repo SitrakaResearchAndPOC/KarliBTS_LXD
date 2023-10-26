@@ -498,14 +498,14 @@ lxc publish KarliBTS --alias KarliBTS -f
 lxc image export KarliBTS .
 ```
 There a two images exported (for mine)
-* with /var/cache/apt/archives :  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
+* with /var/cache/apt/archives [IMAGES](https://drive.google.com/file/d/102hvWSVboSYmcFrr9yrGPMGJiNuouiEp/view?usp=sharing):  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
 ```
 md5sum  c928e6171521f687cc227ea1d4e3fec6f43c68aeecf11fb909df9588034b6ce3.tar.gz
 ```
 ```
 7a6f181cbde8701956e9d6a699c8b3c0
 ```
-* without /var/cache/apt/archives : a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
+* without /var/cache/apt/archives [IMAGES](https://drive.google.com/file/d/1fsdX7I6Z8ujKjUJu77AbjBPlKuDEoI-P/view?usp=drive_link): a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz 
 ```
 md5sum a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 ```
@@ -513,7 +513,13 @@ md5sum a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz
 aab88e06b2113ec99e1a04231a5b9f37 
 ```
 
-
+# IMPORTING IMAGE
+```
+lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
+```
+```
+lxc launch KarliBTSimage KarliBTS
+```
 
 # RUNNING SPOOFING EXTENSION WITH SCRIPT1
 Tape ctrl+shit+T
@@ -646,15 +652,7 @@ lxc config device remove KarliBTS ttyUSB0
 ```
 lxc config device remove KarliBTS ttyUSB1 
 ```
-
-# IMPORTING IMAGE
-```
-lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
-```
-```
-lxc launch KarliBTSimage KarliBTS
-```
-
+# THE TWO FINAL IMAGES
 
 
 # Remark : 
