@@ -739,7 +739,10 @@ if not, setup this, or add this in your .bashrc or .zshrc or ...
 export PATH=$PATH:/usr/local/bin  
 ```
 # IMPORTING IMAGES FOR QUICK INSTALL
-
+## downloading and importing image for Quick install
+```
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy" -O 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz   && rm -rf /tmp/cookies.txt  
+```
 ```
 lxc image import 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz --alias KarliBTSimage
 ```
@@ -860,16 +863,6 @@ lxc exec KarliBTS -- telnet localhost 4241
 ```
 
 
-## downloading and importing image for Quick install
-```
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy" -O 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz   && rm -rf /tmp/cookies.txt  
-```
-```
-lxc image import 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz --alias KarliBTSimage
-```
-```
-lxc launch KarliBTSimage KarliBTS
-```
 ## testing spoofing 1 for Quick install
 ```
 lxc exec KarliBTS -- scripts_spoof1/finding_imsi_extenstion.sh
