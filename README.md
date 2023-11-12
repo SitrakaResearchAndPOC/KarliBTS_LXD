@@ -655,7 +655,7 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 ## SAVING FINAL IMAGE :
-WITHOUT CACHE IN /var/cache/apt/archives AT (IMAGE)[]
+WITHOUT CACHE IN /var/cache/apt/archives AT (IMAGE)[https://drive.google.com/file/d/1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy/view?usp=drive_link]
 ```
 lxc publish KarliBTS --alias KarliBTS -f
 ```
@@ -671,7 +671,7 @@ md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
 chmod 777 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
 ```
 
-WITH CACHE /var/cache/apt/archives AT [IMAGE]()
+WITH CACHE /var/cache/apt/archives AT [IMAGE](https://drive.google.com/file/d/1kIobHz4emtq94L8TLAzUOh5kTjJC1hPC/view?usp=drive_link)
 ```
 lxc publish KarliBTS --alias KarliBTS -f
 ```
@@ -682,12 +682,10 @@ lxc export KarliBTS .
 ```
 md5sum ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
 ```
-3d1492f27800890a0b11d1aebc29c98  ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
+3d1492f27800890a0b11d1aebc29c980  ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
 ```
 chmod 777 ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
 ```
-
-
 
 # QUICK INSTALL FOR KarliBTS_LXD
 ## Installation with LXC  using ubuntu if not yet installed
@@ -739,10 +737,134 @@ if not, setup this, or add this in your .bashrc or .zshrc or ...
 ```
 export PATH=$PATH:/usr/local/bin  
 ```
-# LAUNCHING FOR QUICK INSTALL
-## importing image for Quick install
+# IMPORTING IMAGES FOR QUICK INSTALL
+
 ```
-lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
+lxc image import 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz --alias KarliBTSimage
+```
+```
+lxc launch KarliBTSimage KarliBTS
+```
+
+# LAUNCHING FOR QUICK INSTALL
+## Adding devices on lxc
+Plug usb ttl for motorola phone
+## Finding all devices
+```
+dmesg | grep ttyUSB*
+```
+## Adding devices on LXC
+* For on Phone (SMS only)
+```
+lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
+```  
+* For two Phones (SMS and Call)
+```
+lxc config device add KarliBTS ttyUSB0 unix-char path=/dev/ttyUSB0
+```
+```
+lxc config device add KarliBTS ttyUSB1 unix-char path=/dev/ttyUSB1
+```
+## Setting privileges
+```
+lxc config set KarliBTS security.privileged=true
+```
+
+## SMS ONLY For Quick install
+### Terminal 1 
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
+```
+### or Terminal 1
+```
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+```
+Tape ctrl+shift+T
+
+### Find ARFCN
+Tape `*#*#4636#*#*` and choose GSM only on your Android phone  
+Installing network signal guru on your android phone  
+And finding the arfcn that this one is connect  
+Let's name this arfcn as ARFCN  
+
+### Terminal 2
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN 
+```
+Tape ctrl+shift+T
+### Terminal 3
+```
+lxc exec KarliBTS -- osmo-nitb -c open-bsc.cfg -l hlr.sqlite3 -P -C --debug=DRLL:DCC:DMM:DRR:DRSL:DNM
+```
+Tape ctrl+shift+T
+### Terminal 4
+```
+lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
+```
+
+
+## two phones : sms and call for Quick install
+### Terminal 1 
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB0 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin
+```
+### or Terminal 1
+```
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB0 -c trx.highram.bin
+```
+Tape ctrl+shift+T
+### Terminal 2
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/osmocon/osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c osmocom/trx/src/target/firmware/board/compal_e88/trx.highram.bin 
+```
+### or Terminal 2
+```
+lxc exec KarliBTS -- ./osmocon -m c123xor -p /dev/ttyUSB1 -s /tmp/osmocom_l2.2 -c trx.highram.bin 
+```
+Tape ctrl+shift+T
+
+### Find ARFCN
+Tape `*#*#4636#*#*` and choose GSM only on your Android phone  
+Installing network signal guru on your android phone  
+And finding the arfcn that this one is connect  
+Let's name this arfcn as ARFCN  
+
+### Terminal 3
+```
+lxc exec KarliBTS -- osmocom/trx/src/host/layer23/src/transceiver/transceiver -a ARFCN -2
+```
+Tape ctrl+shift+T
+### Terminal 4
+```
+lxc exec KarliBTS -- osmo-nitb -c open-bsc.cfg -l hlr.sqlite3 -P -C --debug=DRLL:DCC:DMM:DRR:DRSL:DNM
+```
+Tape ctrl+shift+T
+### Terminal 5
+```
+lxc exec KarliBTS -- osmo-bts-trx -c osmo-bts.cfg --debug DRSL:DOML:DLAPDM 
+```
+
+
+
+## Code managing BTS
+```
+lxc exec KarliBTS -- telnet localhost 4242
+```
+```
+lxc exec KarliBTS -- telnet localhost 4241
+```
+## Code USSD phone for getting number msisdn or extension on the network 
+```
+*#100#
+```
+
+
+## downloading and importing image for Quick install
+```
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy" -O 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz   && rm -rf /tmp/cookies.txt  
+```
+```
+lxc image import 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz --alias KarliBTSimage
 ```
 ```
 lxc launch KarliBTSimage KarliBTS
