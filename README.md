@@ -1,5 +1,6 @@
 # KarliBTS_LXD
 # CREATE CONTAINERS FOR KarliBTS
+
 ## installation with LXC  using ubuntu
 ```
 apt update
@@ -654,6 +655,102 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 # QUICK INSTALL FOR KarliBTS_LXD
+## Installation with LXC  using ubuntu if not yet installed
+```
+apt update
+```
+```
+apt-get install lxd lxd-client
+```
+
+
+## Installation with LXC  using DragonOS if not yet installed
+```
+apt update
+```
+```
+apt-get install snapd  
+```
+```
+snap install lxd  
+```
+
+```
+snap install lxd-client  
+```
+
+## Initialisation of LXD if not yet installed
+```
+lxd init  
+```
+For questions please follow the default option, an image illustration is at [image](https://github.com/SitrakaResearchAndPOC/QCSuper/blob/main/screen.jpg) 
+  
+User need to be in group lxd :
+```
+sudo usermod -a G lxd $USER  
+```
+or  
+```
+sudo /usr/sbin/usermod lxd $USER  
+```
+
+$PATH need to contains /usr/local/bin, verify with :  
+```
+echo $PATH  
+```
+
+if not, setup this, or add this in your .bashrc or .zshrc or ...  
+
+```
+export PATH=$PATH:/usr/local/bin  
+```
+# LAUNCHING FOR QUICK INSTALL
+## importing image for Quick install
+```
+lxc image import a89e0a08c6f7e80a2596b47b712ecb7fc933fb0d393e3895d90c5fc720d66087.tar.gz --alias KarliBTSimage
+```
+```
+lxc launch KarliBTSimage KarliBTS
+```
+## testing spoofing 1 for Quick install
+```
+lxc exec KarliBTS -- scripts_spoof1/finding_imsi_extenstion.sh
+```
+```
+lxc exec KarliBTS -- scripts_spoof1/delete_all.sh
+```
+Change with the following imsi 
+```
+lxc exec KarliBTS -- scripts_spoof1/set_imsi_extension.sh 646040227957426 0341220590
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_spoof_byextension.py  
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof1/sending_sms_broadcast.py 
+```
+
+## testing spoofing 2 for Quick install
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/show_subscribers.py
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_broadcast.py 0341220590 'alert corona'
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_send_source_dest_msg.py 0341220590 0341220590 "alert corona v2"
+```
+```
+lxc exec KarliBTS -- python2 scripts_spoof2/sms_spam.py 0341220590 3 "alert corona 3"
+```
+
+## deleting device at lxc for Quick install
+```
+lxc config device remove KarliBTS ttyUSB0
+```
+```
+lxc config device remove KarliBTS ttyUSB1 
+```
 
 
 # Remark : 
