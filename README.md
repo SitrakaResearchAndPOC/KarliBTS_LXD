@@ -654,6 +654,41 @@ lxc config device remove KarliBTS ttyUSB0
 lxc config device remove KarliBTS ttyUSB1 
 ```
 
+## SAVING FINAL IMAGE :
+WITHOUT CACHE AT IMAGE
+```
+lxc publish KarliBTS --alias KarliBTS -f
+```
+Instance published with fingerprint: 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50
+```
+lxc export KarliBTS .
+```
+```
+md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
+```
+0db0473d307a9cd6af3554f7eeedbec9  7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
+```
+chmod 777 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
+```
+
+WITH CACHE AT IMAGE
+```
+lxc publish KarliBTS --alias KarliBTS -f
+```
+Instance published with fingerprint: ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08
+```
+lxc export KarliBTS .
+```
+```
+md5sum ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
+```
+3d1492f27800890a0b11d1aebc29c98  ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
+```
+chmod 777 ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
+```
+
+
+
 # QUICK INSTALL FOR KarliBTS_LXD
 ## Installation with LXC  using ubuntu if not yet installed
 ```
