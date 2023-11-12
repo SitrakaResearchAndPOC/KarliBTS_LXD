@@ -655,7 +655,7 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 ## SAVING FINAL IMAGE :
-WITHOUT CACHE AT IMAGE
+WITHOUT CACHE IN /var/cache/apt/archives AT (IMAGE)[]
 ```
 lxc publish KarliBTS --alias KarliBTS -f
 ```
@@ -671,7 +671,7 @@ md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
 chmod 777 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
 ```
 
-WITH CACHE AT IMAGE
+WITH CACHE /var/cache/apt/archives AT [IMAGE]()
 ```
 lxc publish KarliBTS --alias KarliBTS -f
 ```
