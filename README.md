@@ -655,23 +655,8 @@ lxc config device remove KarliBTS ttyUSB1
 ```
 
 ## SAVING FINAL IMAGE :
-WITHOUT CACHE IN /var/cache/apt/archives AT (IMAGE)[https://drive.google.com/file/d/1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy/view?usp=drive_link]
-```
-lxc publish KarliBTS --alias KarliBTS -f
-```
-Instance published with fingerprint: 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50
-```
-lxc export KarliBTS .
-```
-```
-md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
-```
-0db0473d307a9cd6af3554f7eeedbec9  7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
-```
-chmod 777 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
-```
 
-WITH CACHE /var/cache/apt/archives AT [IMAGE](https://drive.google.com/file/d/1kIobHz4emtq94L8TLAzUOh5kTjJC1hPC/view?usp=drive_link)
+* WITH CACHE /var/cache/apt/archives AT [IMAGE](https://drive.google.com/file/d/1kIobHz4emtq94L8TLAzUOh5kTjJC1hPC/view?usp=drive_link)
 ```
 lxc publish KarliBTS --alias KarliBTS -f
 ```
@@ -685,6 +670,22 @@ md5sum ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
 3d1492f27800890a0b11d1aebc29c980  ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
 ```
 chmod 777 ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
+```
+
+* WITHOUT CACHE IN /var/cache/apt/archives AT (IMAGE)[https://drive.google.com/file/d/1Y7KEpbL-ZFKeL5-9OFBy9lh2ifav9Jcy/view?usp=drive_link]
+```
+lxc publish KarliBTS --alias KarliBTS -f
+```
+Instance published with fingerprint: 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50
+```
+lxc export KarliBTS .
+```
+```
+md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
+```
+0db0473d307a9cd6af3554f7eeedbec9  7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
+```
+chmod 777 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
 ```
 
 # QUICK INSTALL FOR KarliBTS_LXD
