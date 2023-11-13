@@ -662,7 +662,7 @@ lxc publish KarliBTS --alias KarliBTS -f
 ```
 Instance published with fingerprint: ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08
 ```
-lxc export KarliBTS .
+lxc image export KarliBTS .
 ```
 ```
 md5sum ceb29fbf547e5d34e56a5e4b499f492853fbc969e1d1bdcf8e813b0a071a2b08.tar.gz
@@ -678,7 +678,7 @@ lxc publish KarliBTS --alias KarliBTS -f
 ```
 Instance published with fingerprint: 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50
 ```
-lxc export KarliBTS .
+lxc image export KarliBTS .
 ```
 ```
 md5sum 7dddb5be252c4c64e65898daa6cf239893a17c6d751a2f3c4db65a095ce25b50.tar.gz
