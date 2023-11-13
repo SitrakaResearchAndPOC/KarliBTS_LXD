@@ -1,5 +1,24 @@
 # KarliBTS_LXD
 # CREATE CONTAINERS FOR KarliBTS
+# Hardware schematic
+Hardware setup 1 : Need battery and not programmable with arduino  
+
+[serial_cable](https://osmocom.org/projects/baseband/wiki/Serial_Cable)    [smartspate](https://www.smartspate.com/how-to-create-2g-network-at-your-own-home/)   [sudonull](https://sudonull.com/post/69473-Launching-a-GSM-network-at-home-Pentestit-Blog)
+<p align="center">
+  <img src="https://github.com/SitrakaResearchAndPOC/GSM_IMSICATCHER_HALFMITM_SPOOFING-SMS-WITH-PHYSICAL-MS/blob/main/usb_motorola.jpg">
+</p>
+
+<p align="center">
+  <img width="600" height="400" src="https://github.com/SitrakaResearchAndPOC/GSM_IMSICATCHER_HALFMITM_SPOOFING-SMS-WITH-PHYSICAL-MS/blob/main/usb_cable_final.png">
+</p>
+
+
+Hardware setup 2 : No need battery and programmable with arduino  
+<p align="center">
+  <img src="https://github.com/SitrakaResearchAndPOC/GSM_IMSICATCHER_HALFMITM_SPOOFING-SMS-WITH-PHYSICAL-MS/blob/main/USB_TTL.jpg">
+</p>
+
+
 
 ## installation with LXC  using ubuntu
 ```
