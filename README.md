@@ -130,7 +130,7 @@ cd osmocom
 ```
 installing libosomcore
 ```
-git clone git://git.osmocom.org/libosmocore.git
+git clone https://git.osmocom.org/libosmocore.git
 ```
 ```
 cd libosmocore/
@@ -160,7 +160,7 @@ cd ..
   
 installing osmocom-bb
 ```
-git clone git://git.osmocom.org/osmocom-bb.git
+git clone https://git.osmocom.org/osmocom-bb.git
 ```
 ```
 cd osmocom-bb/
@@ -189,7 +189,7 @@ cd ../..
   
 installing libosmo-dsp
 ```
-git clone git://git.osmocom.org/libosmo-dsp.git
+git clone https://git.osmocom.org/libosmo-dsp.git
 ```
 ```
 cd libosmo-dsp/
@@ -218,7 +218,7 @@ cd ..
 
 installing trx
 ```
-git clone git://git.osmocom.org/osmocom-bb.git -b fixeria/trx trx
+git clone https://git.osmocom.org/osmocom-bb.git -b fixeria/trx trx
 ```
 ```
 cd trx/src/
@@ -251,7 +251,7 @@ apt-get install libtool shtool automake dahdi-source libssl-dev sqlite3 libsqlit
 ```
 installing libosmo-abis
 ```
-git clone git://git.osmocom.org/libosmo-abis.git
+git clone https://git.osmocom.org/libosmo-abis.git
 ```
 ```
 cd libosmo-abis/
@@ -279,7 +279,7 @@ cd ..
 ```
 installing libosmo-netif
 ```
-git clone git://git.osmocom.org/libosmo-netif.git
+git clone https://git.osmocom.org/libosmo-netif.git
 ```
 ```
 cd libosmo-netif/
@@ -318,7 +318,7 @@ sudo apt install asterisk telnet python3-pip
 
 installing open-bsc
 ```
-git clone git://git.osmocom.org/openbsc.git
+git clone https://git.osmocom.org/openbsc.git
 ```
 ```
 cd openbsc/openbsc/
@@ -346,7 +346,7 @@ cd ../..
 ```
 installing osmo-bts
 ```
-git clone git://git.osmocom.org/osmo-bts.git
+git clone https://git.osmocom.org/osmo-bts.git
 ```
 ```
 cd osmo-bts/
